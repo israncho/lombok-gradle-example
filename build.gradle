@@ -1,0 +1,25 @@
+plugins {
+  id 'java' 
+  id 'application' 
+}  
+ 
+run{
+    standardInput = System.in
+}
+
+application {  
+  mainClass.set('app.Main')
+}  
+ 
+repositories {  
+  mavenCentral() 
+}  
+ 
+dependencies {  
+  implementation  fileTree(dir:'lib', include: ['*.jar'])
+  // magic starts here
+  compileOnly 'org.projectlombok:lombok:1.18.24'
+  annotationProcessor 'org.projectlombok:lombok:1.18.24'
+  testCompileOnly 'org.projectlombok:lombok:1.18.24'
+  testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
+} 
